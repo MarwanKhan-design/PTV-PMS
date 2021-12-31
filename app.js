@@ -28,7 +28,7 @@ app.get("/abc", (req, res) => {
 // Listeners
 mongoose
   .connect(
-    "mongodb+srv://marwan:asdf1234@cluster0.5mgpq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    "mongodb+srv://marwan:asdf1234@cluster0.tad40.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
   )
   .then(() => console.log("DB connected"));
 app.listen(PORT, () => console.log(`Example app listening on port 8000!`));
