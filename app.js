@@ -21,6 +21,9 @@ app.use(morgan("dev"));
 app.use("/api/product", productRoutes);
 app.use("/api/company", companyRoutes);
 app.use("/api/quotation", quotationRoutes);
+app.get("/abc", (req, res) => {
+  res.json("asdf");
+});
 
 // Listeners
 mongoose
