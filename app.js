@@ -21,6 +21,8 @@ app.use("/api/quotation", quotationRoutes);
 
 // Listeners
 mongoose
-  .connect("mongodb://127.0.0.1:27017/")
+  .connect(
+    "mongodb+srv://marwan:asdf1234@cluster0.5mgpq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  )
   .then(() => console.log("DB connected"));
 app.listen(8000, () => console.log(`Example app listening on port 8000!`));
