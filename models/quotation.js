@@ -40,6 +40,11 @@ const Quotation = mongoose.model(
       trim: true,
       // required: true,
     },
+    from: {
+      type: String,
+      required: true,
+      trim: true,
+    },
   })
 );
 
@@ -51,6 +56,7 @@ function validateQuotation(product) {
     lastDate: Joi.date().required(),
     qtype: Joi.string(),
     refNo: Joi.string(),
+    from: Joi.string(),
   };
 
   return Joi.validate(product, schema);
