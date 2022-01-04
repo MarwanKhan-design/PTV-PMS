@@ -24,6 +24,8 @@ export const createQuotation = async (req, res) => {
       qtype: req.body.qtype,
       refNo: req.body.refNo,
       from: req.body.from,
+      demandDate: req.body.demandDate,
+      demandNumber: req.body.demandNumber,
     });
     const result = await quotation.save();
     const quotation2 = await Quotation.findById(result._id)
@@ -76,6 +78,8 @@ export const updateQuotation = async (req, res) => {
       qtype: req.body.qtype,
       refNo: req.body.refNo,
       from: req.body.from,
+      demandDate: req.body.demandDate,
+      demandNumber: req.body.demandNumber,
     },
     { new: true }
   );

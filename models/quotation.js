@@ -13,39 +13,44 @@ const ProductSchema = new mongoose.Schema({
 
 const Quotation = mongoose.model(
   "Quotation",
-  new mongoose.Schema({
-    companies: {
-      type: Array,
-      required: true,
-      trim: true,
-      ref: "Company",
+  new mongoose.Schema(
+    {
+      companies: {
+        type: Array,
+        required: true,
+        trim: true,
+        ref: "Company",
+      },
+      products: {
+        type: [ProductSchema],
+        required: true,
+        trim: true,
+      },
+      bids: {
+        type: [BidSchema],
+        required: true,
+        trim: true,
+      },
+      lastDate: { type: Date },
+      qtype: {
+        type: String,
+        trim: true,
+      },
+      refNo: {
+        type: String,
+        trim: true,
+        // required: true,
+      },
+      from: {
+        type: String,
+        required: true,
+        trim: true,
+      },
+      demandDate: Date,
+      demandNumber: String,
     },
-    products: {
-      type: [ProductSchema],
-      required: true,
-      trim: true,
-    },
-    bids: {
-      type: [BidSchema],
-      required: true,
-      trim: true,
-    },
-    lastDate: { type: Date },
-    qtype: {
-      type: String,
-      trim: true,
-    },
-    refNo: {
-      type: String,
-      trim: true,
-      // required: true,
-    },
-    from: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-  })
+    { timestamps: true }
+  )
 );
 
 function validateQuotation(product) {
@@ -57,6 +62,8 @@ function validateQuotation(product) {
     qtype: Joi.string(),
     refNo: Joi.string(),
     from: Joi.string(),
+    demandDate: Joi.string(),
+    demandNumber: Joi.string(),
   };
 
   return Joi.validate(product, schema);
