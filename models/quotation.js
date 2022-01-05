@@ -6,6 +6,10 @@ const BidSchema = new mongoose.Schema({
   product: { type: String, required: true, ref: "Product" },
   price: { type: Number },
 });
+const MyBidSchema = new mongoose.Schema({
+  product: { type: String, required: true, ref: "Product" },
+  price: { type: Number },
+});
 const ProductSchema = new mongoose.Schema({
   product: { type: String, required: true, ref: "Product" },
   quantity: { type: Number, required: true },
@@ -49,7 +53,7 @@ const Quotation = mongoose.model(
       demandDate: Date,
       demandNumber: String,
       myBids: {
-        type: [BidSchema],
+        type: [MyBidSchema],
         trim: true,
       },
     },

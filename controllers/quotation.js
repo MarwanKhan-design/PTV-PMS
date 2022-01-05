@@ -55,7 +55,8 @@ export const getQuotation = async (req, res) => {
     .select("-__v")
     .populate("companies", "name address")
     .populate("products.product", "name unit")
-    .populate("bids.product", "name unit");
+    .populate("bids.product", "name unit")
+    .populate("myBids.product", "name unit");
 
   if (!quotation)
     return res
