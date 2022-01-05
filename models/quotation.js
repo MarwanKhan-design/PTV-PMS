@@ -68,7 +68,7 @@ function validateQuotation(product) {
     from: Joi.string(),
     demandDate: Joi.string(),
     demandNumber: Joi.string(),
-    myBids: Joi.string(),
+    myBids: Joi.array(),
   };
 
   return Joi.validate(product, schema);
