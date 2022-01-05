@@ -48,6 +48,10 @@ const Quotation = mongoose.model(
       },
       demandDate: Date,
       demandNumber: String,
+      myBids: {
+        type: [BidSchema],
+        trim: true,
+      },
     },
     { timestamps: true }
   )
@@ -64,6 +68,7 @@ function validateQuotation(product) {
     from: Joi.string(),
     demandDate: Joi.string(),
     demandNumber: Joi.string(),
+    myBids: Joi.string(),
   };
 
   return Joi.validate(product, schema);

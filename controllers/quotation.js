@@ -26,6 +26,7 @@ export const createQuotation = async (req, res) => {
       from: req.body.from,
       demandDate: req.body.demandDate,
       demandNumber: req.body.demandNumber,
+      myBids: req.body.myBids,
     });
     const result = await quotation.save();
     const quotation2 = await Quotation.findById(result._id)
@@ -80,6 +81,7 @@ export const updateQuotation = async (req, res) => {
       from: req.body.from,
       demandDate: req.body.demandDate,
       demandNumber: req.body.demandNumber,
+      myBids: req.body.myBids,
     },
     { new: true }
   );
