@@ -14,7 +14,7 @@ export const paginatedQuotations = (req, res) => {
 export const createQuotation = async (req, res) => {
   const { error } = validateQuotation(req.body);
   if (error) return res.status(400).send(error);
-
+  const forPTV2 = req.body.from === "marwan" ? false : true;
   try {
     const quotation = new Quotation({
       products: req.body.products,
@@ -23,7 +23,7 @@ export const createQuotation = async (req, res) => {
       lastDate: req.body.lastDate,
       qtype: req.body.qtype,
       refNo: req.body.refNo,
-      from: req.body.from,
+      from: forPTV2,
       demandDate: req.body.demandDate,
       demandNumber: req.body.demandNumber,
       myBids: req.body.myBids,
