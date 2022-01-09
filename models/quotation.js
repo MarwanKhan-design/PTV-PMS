@@ -56,6 +56,7 @@ const Quotation = mongoose.model(
         type: [MyBidSchema],
         trim: true,
       },
+      forPTV: { type: Boolean, default: true },
     },
     { timestamps: true }
   )

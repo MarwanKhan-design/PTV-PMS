@@ -7,7 +7,11 @@ import {
   updateQuotation,
   paginatedQuotations,
 } from "../controllers/quotation.js";
-import { paginatedResults, paginatedResultsForQuotation } from "../middleware/pagination.js";
+import {
+  paginatedResults,
+  paginatedResultsForQuotation,
+  paginatedResultsForQuotationForMe,
+} from "../middleware/pagination.js";
 import { Quotation } from "../models/quotation.js";
 
 const router = express.Router();
@@ -18,6 +22,12 @@ router.get(
   paginatedResultsForQuotation(Quotation),
   paginatedQuotations
 );
+router.get(
+  "/paginated/me",
+  paginatedResultsForQuotationForMe(Quotation),
+  paginatedQuotations
+);
+
 router.get("/:id", getQuotation);
 router.post("/create", createQuotation);
 router.delete("/:id", deleteQuotation);
