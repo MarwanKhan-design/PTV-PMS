@@ -74,6 +74,7 @@ function validateQuotation(product) {
     demandDate: Joi.string(),
     demandNumber: Joi.string(),
     myBids: Joi.array(),
+    forPTV: Joi.boolean(),
   };
 
   return Joi.validate(product, schema);
