@@ -23,11 +23,11 @@ export const createQuotation = async (req, res) => {
       lastDate: req.body.lastDate,
       qtype: req.body.qtype,
       refNo: req.body.refNo,
-      from: forPTV2,
+      from: req.body.from,
       demandDate: req.body.demandDate,
       demandNumber: req.body.demandNumber,
       myBids: req.body.myBids,
-      forPTV: req.body.forPTV,
+      forPTV: forPTV2,
     });
     const result = await quotation.save();
     const quotation2 = await Quotation.findById(result._id)
